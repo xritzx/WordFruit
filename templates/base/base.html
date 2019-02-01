@@ -1,0 +1,101 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html>
+	<head> 
+		<title>BookHookUP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+	</head>
+	<body class="is-preload homepage">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<header id="header" class="container">
+
+						<!-- Logo -->
+							<div id="logo">
+								<h1><a href="{% url 'library:homepage' %}">BookHookUP</a></h1>
+								<span>by Ritankar </span>
+							</div>
+
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li class="current"><a href="{% url 'library:homepage' %}">Home</a></li>
+									<li>
+										<a href="#">Genre</a>
+										<ul>
+                                        {% for genre in genres %}
+                                        <li><a href="{% url 'library:book' genre %}">{{genre}}</a></li>
+                                        {% endfor %}											
+										</ul>
+									</li>
+                                    {% if user.is_authenticated %}
+                                    <li><a href="left-sidebar.html">Logout</a></li>
+									<li><a href="right-sidebar.html">{{user.username}}</a></li>
+                                    <li><a href="">Suggestions</a></li>
+                                    {% else %}
+                                    <li><a href="left-sidebar.html">Login</a></li>
+									<li><a href="right-sidebar.html">Signup</a></li>
+                                    <li><a href="">Suggestions</a></li>
+                                    {% endif %}
+								</ul>
+							</nav>
+
+					</header>
+				</div>
+
+			<!-- Banner -->
+				<div id="banner-wrapper">
+					<div id="banner" class="box container">
+						<div class="row">
+							<div class="col-7 col-12-medium">
+								<h2>This is BookHookUP</h2>
+								<p>Exclusively Prensented to MindWebs for HackStart</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			{% block content %}
+            
+            {% endblock %}
+			
+			<!-- Footer -->
+	    	<div id="footer-wrapper">
+					<footer id="footer" class="container">
+						<div class="row">
+						    <div class="col-3 col-6-medium col-12-small">
+								<!-- Contact -->
+									<section class="widget contact last">
+										<h3>Contact</h3>
+										<ul>
+											<li><a href="https://www.github.com/xritzx" class="icon fa-github"><span class="label">Twitter</span></a></li>
+											<li><a href="https://www.facebook.com/xritzx" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+											<li><a href="https://www.instagram.com/x_ritz_x" class="icon fa-instagram"><span class="label">Instagram</span></a></li>											
+										</ul>
+										<p>India WestBengal Kolkata<br />
+										Habra @ Ritankar<br />
+										</p>
+									</section>
+
+							</div>
+						</div>
+					</footer>
+				</div>
+
+			</div>
+
+		<!-- Scripts -->
+
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
+			<script src="{% static 'assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>

@@ -1,0 +1,32 @@
+{% extends "base/base.html" %}
+
+{% load staticfiles %}
+{% block content %}
+<!-- Features -->
+<div id="features-wrapper">
+    <div class="container">
+        <div class="row">
+            {% for book in books %}
+            <div class="col-4 col-12-large">
+                <!-- Box -->
+                    <section class="box feature">
+                        <a href="#" class="image featured"><img src="{{book.image.thumbnail.url}}" alt="Image" /></a>
+                        <div class="inner">
+                            <header>
+                                <h2>{{book.book}}</h2>
+                                <h5>ISBN-{{book.ISBN}}</h5>
+                                <p>Genre: {{book.genre.name}}</p>
+                            </header>
+                        <a href="{{book.ebook.url}}" style="text-decoration:none;color:black;" class="icon fa-download"></a>
+                        <p>Contributed by {{book.contributor.first_name}}</p>
+                        <p>Posted on: {{book.date}}</p>
+                        <p class="icon fa-book"> Read Count {{book.read.count}}</p>
+                        </div>
+                    </section>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
