@@ -1,0 +1,38 @@
+{% extends "base/base.html" %}
+{% load staticfiles %}
+{% block content %}
+{% load widget_tweaks %}
+
+<!-- Banner -->
+<div id="banner-wrapper">
+    <div id="banner" class="box container">
+        <div class="row">
+            <div class="col-7 col-12-medium">
+                <h2>Signup</h2>
+                <p>Be a Part of Us</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="form-group">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field|add_class:'form-control' }}
+        {% for error in field.errors %}
+          <span class="help-block">{{ error }}</span>
+        {% endfor %}
+      </div>
+    {% endfor %}
+    <br>
+    <div class="form-group">
+      <button type="submit" class="btn btn-success">
+        <span class="glyphicon glyphicon-ok"></span> Join
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}

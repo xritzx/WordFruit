@@ -23,7 +23,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'library',
     'users',
-    'stdimage'
+    'stdimage',
+    'widget_tweaks'
 ]
 AUTH_USER_MODEL = 'users.CustomUser'
 

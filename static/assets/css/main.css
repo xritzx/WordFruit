@@ -2,6 +2,12 @@
 @import url("https://fonts.googleapis.com/css?family=Oleo+Script:400|Open+Sans:300,300italic,600,600italic,800");
 
 
+.lovedBtn{
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+}
+
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,

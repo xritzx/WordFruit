@@ -5,4 +5,4 @@ class  BookAddForm(ModelForm):
 
     class Meta:
         model = Book
-        exclude = ['contributor', ]
+        exclude = ['contributor', 'date', 'read', 'likes']

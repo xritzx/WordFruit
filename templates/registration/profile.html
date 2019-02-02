@@ -1,0 +1,24 @@
+{% extends "base/base.html" %}
+
+{% load staticfiles %}
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Box -->
+                    <section class="box feature">
+                        <a href="#" class="image featured"><img src="{{user.profile_pic.url}}" alt="Image" /></a>
+                        <div class="inner">
+                            <header>
+                                <h2>{{user.username}}</h2>
+                                <h5>Name- {{user.first_name}} {{user.last_name}}</h5>
+                            </header>
+                        <p class="icon fa-book"> Books Read: {{user.has_read.count}}</p>
+                        </div>
+                    </section>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

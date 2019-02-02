@@ -6,6 +6,8 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+		
 	</head>
 	<body class="is-preload homepage">
 		<div id="page-wrapper">
@@ -33,13 +35,14 @@
 										</ul>
 									</li>
                                     {% if user.is_authenticated %}
-                                    <li><a href="left-sidebar.html">Logout</a></li>
-									<li><a href="right-sidebar.html">{{user.username}}</a></li>
-                                    <li><a href="">Suggestions</a></li>
+                                    <li><a href="{% url 'logout' %}">Logout</a></li>
+									<li><a href="{% url 'library:addbook' %}">Contribute</a></li>
+									<li><a href="{% url 'users:profile' %}">{{user.username}}</a></li>
+                                    <li><a href="{% url 'library:suggestions' %}">Suggestions</a></li>
                                     {% else %}
-                                    <li><a href="left-sidebar.html">Login</a></li>
-									<li><a href="right-sidebar.html">Signup</a></li>
-                                    <li><a href="">Suggestions</a></li>
+                                    <li><a href="{% url 'login' %}">Login</a></li>
+									<li><a href="{% url 'users:signup' %}">Signup</a></li>
+                                    <li><a href="{% url 'login' %}">Suggestions</a></li>
                                     {% endif %}
 								</ul>
 							</nav>
@@ -47,17 +50,7 @@
 					</header>
 				</div>
 
-			<!-- Banner -->
-				<div id="banner-wrapper">
-					<div id="banner" class="box container">
-						<div class="row">
-							<div class="col-7 col-12-medium">
-								<h2>This is BookHookUP</h2>
-								<p>Exclusively Prensented to MindWebs for HackStart</p>
-							</div>
-						</div>
-					</div>
-				</div>
+			
 
 			{% block content %}
             
@@ -89,13 +82,14 @@
 			</div>
 
 		<!-- Scripts -->
-
+			{% block script %}
 			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
 			<script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
 			<script src="{% static 'assets/js/browser.min.js' %}"></script>
 			<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
 			<script src="{% static 'assets/js/util.js' %}"></script>
 			<script src="{% static 'assets/js/main.js' %}"></script>
+			{% endblock %}
 
 	</body>
 </html>

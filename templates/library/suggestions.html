@@ -9,13 +9,18 @@
     <div id="banner" class="box container">
         <div class="row">
             <div class="col-7 col-12-medium">
-                <h2>This is BookHookUP</h2>
-                <p>Exclusively Prensented to MindWebs for HackStart</p>
+            {% if books %}
+                <h2>Suggestions Only for You</h2>
+                <p>Crafted only for you based on your previous activities</p>
+            {% else %}
+                <h2>Good to see you here</h2>
+                <p>To get some good suggestions please spend some time on our library by rating and likking our collections</p>
+            {% endif %}
             </div>
         </div>
     </div>
 </div>
-
+{% if books %}
 <!-- Features -->
 <div id="features-wrapper">
     <div class="container">
@@ -50,7 +55,7 @@
         </div>
     </div>
 </div>
-
+{% endif %}
 {% endblock %}
 
 {% block script %}

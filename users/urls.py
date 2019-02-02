@@ -7,5 +7,5 @@ app_name = "users"
 
 urlpatterns = [
     path('signup/', views.SignUp.as_view(), name='signup'),
-    path('profile/', login_required(TemplateView(template_name='registration/profile.html')), name='profile')
+    path('profile/', login_required(TemplateView.as_view(template_name='registration/profile.html')), name='profile')
 ]
