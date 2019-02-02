@@ -1,0 +1,12 @@
+{% if search_results %}
+    {% for result in search_results %}
+        <a href="" style="display:block">{{result.book}}</a> <!--TODO: add a link to generic user profile view template-->
+    {% endfor %}
+    
+        {% for genre in genres %}
+            <a href="{% url 'library:book' genre.name %}" style="display:block">Genre - {{ genre.name }}</a> <!--TODO: add a link to generic user profile view template-->
+        {% endfor %}
+    
+{% else %}
+    <a>No results Found</a>
+{% endif %}

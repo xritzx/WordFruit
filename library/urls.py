@@ -6,6 +6,7 @@ app_name = 'library'
 
 urlpatterns = [
     path('', views.book, name='homepage'),
+    path('search/book/', views.search, name='search'),
     path('suggest/book/', views.suggest, name='suggestions'),
     path('<str:genre>/', views.book, name='book'),
     path('add/book/', views.add_book, name='addbook'),

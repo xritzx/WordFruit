@@ -79,3 +79,17 @@ def has_liked(request, id):
         return HttpResponse("True")
     else:
         return HttpResponse("False")
+
+def search(request):
+    if request.method == "POST":
+        search_text = request.POST["search_text"]
+    else:
+        search_text = ''
+    genres = Genre.objects.filter(name__icontains=search_text)
+    results = Book.objects.filter(book__icontains=search_text)\
+    |Book.objects.filter(ISBN__icontains=search_text) 
+
+    return render(request, 'library/search_results.html', {
+        'search_results': results,
+        'genres': genres,
+        })

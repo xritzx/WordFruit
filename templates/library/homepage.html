@@ -11,6 +11,16 @@
             <div class="col-7 col-12-medium">
                 <h2>This is BookHookUP</h2>
                 <p>Exclusively Prensented to MindWebs for HackStart</p>
+                  <din class="searchContainer">
+                <div class="searchBar">
+                        {% csrf_token %}
+                    <input type="text"  placeholder="Search by name|ISBN|genre" class="searchArea" id="search">
+                    <i class="fas fa-search" flag="true"></i>
+                </div>
+                <div class="searchContent" id="search_results">
+                    <!-- data to be fetched here -->
+                </div>
+            </din>
             </div>
         </div>
     </div>
@@ -55,5 +65,5 @@
 
 {% block script %}
 {{ block.super }}
-<script src="{% static 'assets/js/homepage.js' %}"></script>
+    <script src="{% static 'assets/js/homepage.js' %}"></script>
 {% endblock %}

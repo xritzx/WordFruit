@@ -7,6 +7,58 @@
 	color: black;
 	cursor: pointer;
 }
+/* search panel */
+.searchContainer    {
+    position: relative;
+    
+}
+
+.searchBar  {
+    border: 2px solid rgb(226, 226, 226);
+    background: rgb(226, 226, 226);
+    padding: 6px;
+    border-radius: 10px;
+    color: white;
+    display: inline;
+    transition: 200ms;
+}
+
+.searchArea {
+    border: none;
+    outline: none;
+    background: rgb(226, 226, 226);
+}
+
+.searchContent  {
+	display: none;
+	z-index: 10;
+    position: absolute;
+    width: 210px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.925);
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+.searchContent a    {
+    text-decoration: none;
+}
+
+
+
+
+  /* to hide search area */
+  @media only screen and (max-width: 624px) {
+	.searchContent  {
+		display: none;
+		position: relative;
+		width: 210px;
+		text-align: center;
+		background: rgba(255, 255, 255, 0.925);
+		border-radius: 15px;
+		margin-top: 10px;
+	}
+  }
 
 
 html, body, div, span, applet, object,
