@@ -18,3 +18,13 @@ Problem it solves:
 2) Open Source and Public library where people can contribute ebooks that is generally hard to find on the internet
 3) Reads the nature of the reader and reader gets to know all the books that he can add up to his readlists.
 4) Integrated into a local library community.
+
+Setup
+```
+git clone https://github.com/xritzx/TM010_pVGJdL.git
+cd TM010_pVGJdL
+pip install -r requirements.txt
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver 
+```
