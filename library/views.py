@@ -80,6 +80,30 @@ def has_liked(request, id):
     else:
         return HttpResponse("False")
 
+
+@login_required
+def add_read(request, id):
+    
+    user = request.user
+    book = Book.objects.get(id=id)
+    if user.has_read.filter(id=book.id).exists():
+        book.read.remove(user)
+        book.save()
+        return HttpResponse("Unliked")
+    else:
+        book.read.add(user)
+        book.save()
+        return HttpResponse("Liked")
+
+@login_required
+def has_read(request, id):
+    user = request.user
+    book = Book.objects.get(id=id)
+    if user.has_read.filter(id=book.id).exists():
+        return HttpResponse("True")
+    else:
+        return HttpResponse("False")
+
 def search(request):
     if request.method == "POST":
         search_text = request.POST["search_text"]

@@ -41,7 +41,7 @@
                         {% endif %}
                         <p>Contributed by {{book.contributor.first_name}}</p>
                         <p>Posted on: {{book.date}}</p>
-                        <p class="icon fa-book"> Read Count {{book.read.count}}</p>
+                        Read Count <read class="icon fa-book readBtn" id="/read/{{ book.id }}/">  {{book.read.count}}</read>
 
                         <div class="lovedBtn" id="/like/{{ book.id }}/"><!--The ID of the Love button acts as an urlpattern for the ajax call-->
                             <i class="fas fa-heart"></i>

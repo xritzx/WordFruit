@@ -2,23 +2,87 @@
 
 {% load staticfiles %}
 {% block content %}
-
+<div id="banner-wrapper">
+    <div id="banner" class="box container">
+        <div class="row">
+            <div class="col-7 col-12-medium">
+                <h2>DashBoard</h2>
+                <p>Get all your liked books
+                    at one place.</p>
+                    <br>
+                </div>
+            </div>
+        </div>
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-4">
+                <!-- Box -->
+                    <section class="box feature">
+                        <div class="inner">
+                            <p style="font-size:40px;">{{user.first_name}} {{user.last_name}}</h1><hr>
+                            <h3>{{user.username|upper}}</h3>
+                        </div>
+                    </section>
+            </div>
+            <div class="col-4">
                 <!-- Box -->
                     <section class="box feature">
                         <a href="#" class="image featured"><img src="{{user.profile_pic.url}}" alt="Image" /></a>
+                    </section>
+            </div>
+            <div class="col-4">
+                <!-- Box -->
+                    <section class="box feature">
                         <div class="inner">
-                            <header>
-                                <h2>{{user.username}}</h2>
-                                <h5>Name- {{user.first_name}} {{user.last_name}}</h5>
-                            </header>
-                        <p class="icon fa-book"> Books Read: {{user.has_read.count}}</p>
+                            <p class="icon fa-book" style="font-size:30px;"> Books Read: {{user.has_read.count}}</p>
+                            <p class="icon fa-heart" style="font-size:30px;color:red"> <span style="font-size:30px;color:black;">Books Loved: {{user.books_liked.count}}</span></p>
+
                         </div>
                     </section>
             </div>
         </div>
     </div>
+    <hr>
+    <br>
+    {% if books %}
+    <!-- Features -->
+    <div id="features-wrapper">
+        <div class="container">
+            <div class="row">
+                {% for book in books %}
+                <div class="col-4 col-12-large">
+                    <!-- Box -->
+                        <section class="box feature">
+                            <a href="#" class="image featured"><img src="{{book.image.thumbnail.url}}" alt="Image" /></a>
+                            <div class="inner">
+                                <header>
+                                    <h2>{{book.book}}</h2>
+                                    <h5>ISBN-{{book.ISBN}}</h5>
+                                    <p>Genre: {{book.genre.name}}</p>
+                                </header>
+                            {% if book.ebook %}
+                            <a href="{{ book.ebook.url }}" style="text-decoration:none;color:black;" class="icon fa-download"></a>
+                            {% endif %}
+                            <p>Contributed by {{book.contributor.first_name}}</p>
+                            <p>Posted on: {{book.date}}</p>
+                            Read Count <read class="icon fa-book readBtn" id="/read/{{ book.id }}/">  {{book.read.count}}</read>
 
+                            <div class="lovedBtn" id="/like/{{ book.id }}/"><!--The ID of the Love button acts as an urlpattern for the ajax call-->
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <p class="likes">Likes: <span class="likesC">{{ book.likes.count }}<span></p>
+
+                            </div>
+                        </section>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
+
+{% block script %}
+{{ block.super }}
+<script src="{% static 'assets/js/homepage.js' %}"></script>
 {% endblock %}

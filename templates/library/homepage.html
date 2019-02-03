@@ -9,12 +9,14 @@
     <div id="banner" class="box container">
         <div class="row">
             <div class="col-7 col-12-medium">
-                <h2>This is BookHookUP</h2>
-                <p>Exclusively Prensented to MindWebs for HackStart</p>
+                <h2>This is Word Fruit</h2>
+                <p>A Fruit for the Book Worms
+                    made for HackStart</p>
+                    <br>
                   <din class="searchContainer">
                 <div class="searchBar">
                         {% csrf_token %}
-                    <input type="text"  placeholder="Search by name|ISBN|genre" class="searchArea" id="search">
+                    <input type="text"  placeholder="Search" class="searchArea" id="search">
                     <i class="fas fa-search" flag="true"></i>
                 </div>
                 <div class="searchContent" id="search_results">
@@ -34,7 +36,7 @@
             <div class="col-4 col-12-large">
                 <!-- Box -->
                     <section class="box feature">
-                        <a href="#" class="image featured"><img src="{{book.image.thumbnail.url}}" alt="Image" /></a>
+                        <a href="#" class="image featured"><img src="{{book.image.url}}" alt="Image" /></a>
                         <div class="inner">
                             <header>
                                 <h2>{{book.book}}</h2>
@@ -46,7 +48,7 @@
                         {% endif %}
                         <p>Contributed by {{book.contributor.first_name}}</p>
                         <p>Posted on: {{book.date}}</p>
-                        <p class="icon fa-book"> Read Count {{book.read.count}}</p>
+                        Read Count <read class="icon fa-book readBtn" id="/read/{{ book.id }}/">  {{book.read.count}}</read>
 
                         <div class="lovedBtn" id="/like/{{ book.id }}/"><!--The ID of the Love button acts as an urlpattern for the ajax call-->
                             <i class="fas fa-heart"></i>
