@@ -27,10 +27,15 @@ Setup
 ```
 git clone https://github.com/xritzx/TM010_pVGJdL.git
 cd TM010_pVGJdL
-pip install -r requirements.txt
-python manage.py makemigrations
-python manage.py migrate
-python manage.py runserver 
+>pip install -r requirements.txt
+>python manage.py makemigrations
+>python manage.py migrate
+>python manage.py runserver 
+>python manage.py createsuperuser
+ONCE YOU ARE DONE WITH IT
+HEAD TO http://127.0.0.1:8000/admin
+AND ADD TO DATA BASE
 ```
+
 OR MAY BE A SNEAK PEEK AT
 https://docs.google.com/presentation/d/1UflULd-yw_f3mzb0KvD7kDb8HfxD5KPm8eU1egHuA4E/edit?usp=sharing
