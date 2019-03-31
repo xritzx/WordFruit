@@ -16,7 +16,7 @@ class Genre(models.Model):
 class Book(models.Model):
     
     book = models.CharField(max_length=100)
-    ISBN = models.IntegerField()
+    ISBN = models.IntegerField(primary_key=True)
     genre = models.ForeignKey(Genre, default=0, on_delete=models.CASCADE)
     image = StdImageField(upload_to='bookCover/', blank=True, variations={'thumbnail': (600, 800, True)})
     contributor = models.ForeignKey(User, on_delete=models.CASCADE)

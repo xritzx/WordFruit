@@ -58,11 +58,11 @@ def add_book(request):
         return render(request, 'library/addbook.html', {'form': form})
 
 @login_required
-def add_likes(request, id):
+def add_likes(request, ISBN):
     
     user = request.user
-    book = Book.objects.get(id=id)
-    if user.books_liked.filter(id=book.id).exists():
+    book = Book.objects.get(ISBN=ISBN)
+    if user.books_liked.filter(ISBN=book.ISBN).exists():
         book.likes.remove(user)
         book.save()
         return HttpResponse("Unliked")
@@ -72,21 +72,21 @@ def add_likes(request, id):
         return HttpResponse("Liked")
 
 @login_required
-def has_liked(request, id):
+def has_liked(request, ISBN):
     user = request.user
-    book = Book.objects.get(id=id)
-    if user.books_liked.filter(id=book.id).exists():
+    book = Book.objects.get(ISBN=ISBN)
+    if user.books_liked.filter(ISBN=book.ISBN).exists():
         return HttpResponse("True")
     else:
         return HttpResponse("False")
 
 
 @login_required
-def add_read(request, id):
+def add_read(request, ISBN):
     
     user = request.user
-    book = Book.objects.get(id=id)
-    if user.has_read.filter(id=book.id).exists():
+    book = Book.objects.get(ISBN=ISBN)
+    if user.has_read.filter(ISBN=book.ISBN).exists():
         book.read.remove(user)
         book.save()
         return HttpResponse("Unliked")
@@ -96,10 +96,10 @@ def add_read(request, id):
         return HttpResponse("Liked")
 
 @login_required
-def has_read(request, id):
+def has_read(request, ISBN):
     user = request.user
-    book = Book.objects.get(id=id)
-    if user.has_read.filter(id=book.id).exists():
+    book = Book.objects.get(ISBN=ISBN)
+    if user.has_read.filter(ISBN=book.ISBN).exists():
         return HttpResponse("True")
     else:
         return HttpResponse("False")

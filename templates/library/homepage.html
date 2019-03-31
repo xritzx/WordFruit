@@ -48,9 +48,9 @@
                         {% endif %}
                         <p>Contributed by {{book.contributor.first_name}}</p>
                         <p>Posted on: {{book.date}}</p>
-                        Read Count <read class="icon fa-book readBtn" id="/read/{{ book.id }}/">  {{book.read.count}}</read>
+                        Read Count <read class="icon fa-book readBtn" id="/read/{{ book.ISBN }}/">  {{book.read.count}}</read>
 
-                        <div class="lovedBtn" id="/like/{{ book.id }}/"><!--The ID of the Love button acts as an urlpattern for the ajax call-->
+                        <div class="lovedBtn" id="/like/{{ book.ISBN }}/"><!--The ID of the Love button acts as an urlpattern for the ajax call-->
                             <i class="fas fa-heart"></i>
                         </div>
                         <p class="likes">Likes: <span class="likesC">{{ book.likes.count }}<span></p>
