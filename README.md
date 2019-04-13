@@ -39,3 +39,5 @@ AND ADD TO DATA BASE
 
 OR MAY BE A SNEAK PEEK AT
 https://docs.google.com/presentation/d/1UflULd-yw_f3mzb0KvD7kDb8HfxD5KPm8eU1egHuA4E/edit?usp=sharing
+
+Here is the Live App: http://wordfruit.icu/
