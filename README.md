@@ -1,5 +1,5 @@
 # Word Fruit
-![Alt Text](https://drive.google.com/open?id=1cHq_It0Rt3STDl1R0RdisNhGEWVuuKGc)
+![Alt Text](https://media.giphy.com/media/Y4tGH6dz3EIvpxaLkp/giphy.gif)
 A community for all the book worms
 It is a Python based webapp thats has the following features
 
