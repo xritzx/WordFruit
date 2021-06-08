@@ -2,7 +2,7 @@ Django==2.1.3
 django-extensions==1.9.7
 django-stdimage==3.0.0
 olefile==0.44
-Pillow==5.2.0
+Pillow==8.2.0
 progressbar2==3.34.3
 python-utils==2.2.0
 pytz==2017.3
