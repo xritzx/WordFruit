@@ -9,7 +9,7 @@ pytz==2017.3
 six==1.11.0
 typing==3.6.2
 django-robots==3.0
-certifi==2018.11.29
+certifi==2022.12.7
 chardet==3.0.4
 defusedxml==0.5.0
 idna==2.8
